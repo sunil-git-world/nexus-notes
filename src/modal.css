@@ -1,0 +1,29 @@
+/* src/modal.css */
+#nexus-notes-button {
+  position: fixed;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  cursor: pointer;
+}
+
+#nexus-modal {
+  display: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 400px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+#nexus-modal.show {
+  display: block;
+}
+
+.modal-section {
+  margin-bottom: 15px;
+}
