@@ -1,19 +1,12 @@
 {
   "name": "nexus-notes",
   "version": "1.0.0",
-  "description": "A modal component for managing notes, compatible with multiple JavaScript frameworks.",
-  "main": "dist/nexus-notes.js",
-  "module": "dist/nexus-notes.esm.js",
-  "scripts": {
-    "build": "npx rollup -c",
-    "prepublishOnly": "npm run build"
-  },
+  "description": "A simple modal package for JavaScript frameworks.",
+  "main": "src/index.js",             // CommonJS module entry point
+  "module": "src/index.js",           // ES module entry point (same file if no build step)
+  "style": "src/styles.css",          // CSS entry point
+  "keywords": ["modal", "JavaScript", "framework-agnostic"],
   "author": "Chander Kant",
   "license": "MIT",
-  "devDependencies": {
-    "@rollup/plugin-commonjs": "^21.0.0",
-    "@rollup/plugin-node-resolve": "^13.0.0",
-    "rollup": "^2.79.2",
-    "rollup-plugin-terser": "^7.0.0"
-  }
+  "dependencies": {}
 }

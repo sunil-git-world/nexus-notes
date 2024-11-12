@@ -1,45 +1,18 @@
-// src/modal.js
-//import './modal.css';
-
-export function createModal(isAuthorized, apiUrl) {
-  if (!isAuthorized) return;
-
+export function createModal() {
+  // Create button on the right edge
   const button = document.createElement('button');
-  button.id = 'nexus-notes-button';
-  button.innerText = 'Open Notes';
+  button.innerText = 'Open Modal';
+  button.style.position = 'fixed';
+  button.style.right = '0';
+  button.style.top = '50%';
   document.body.appendChild(button);
 
-  const modal = document.createElement('div');
-  modal.id = 'nexus-modal';
-  modal.innerHTML = `
-    <div class="modal-section">
-      <input id="search-field" type="text" placeholder="Search..." />
-    </div>
-    <div class="modal-section">
-      <textarea id="note-field" placeholder="Write a note..."></textarea>
-      <button id="save-note">Save Note</button>
-    </div>
-    <button id="history-button">View History</button>
-    <div id="history-section" class="modal-section"></div>
-  `;
-  document.body.appendChild(modal);
+  button.addEventListener('click', openModal);
 
-  button.addEventListener('click', () => {
-    modal.classList.toggle('show');
-  });
-
-  document.getElementById('save-note').addEventListener('click', async () => {
-    const note = document.getElementById('note-field').value;
-    await fetch(`${apiUrl}/save-note`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({ note })
-    });
-  });
-
-  document.getElementById('history-button').addEventListener('click', async () => {
-    const response = await fetch(`${apiUrl}/get-notes`);
-    const notes = await response.json();
-    document.getElementById('history-section').innerText = notes.join('\n');
-  });
+  function openModal() {
+    const modal = document.createElement('div');
+    modal.className = 'nexus-modal';
+    modal.innerHTML = '<div><input type="text" placeholder="Search..." id="search-field"/><textarea placeholder="Write a note..." id="note-field"></textarea><button id="history-btn">History</button>      </div>';
+    document.body.appendChild(modal);
+  }
 }
