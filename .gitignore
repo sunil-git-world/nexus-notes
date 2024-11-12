@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Build outputs
+build/
+
+# Log files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# OS-specific files
+.DS_Store
+Thumbs.db
+
+# Environment variables
+.env
+.env.* 
+
+# Temporary files
+*.tmp
+*.temp
+
+# IDE and Editor settings
+.vscode/
+.idea/
+*.swp
+
+# Coverage reports (if using a test coverage tool)
+coverage/
+
+# Compiled or bundled files (generated on build)
+*.tsbuildinfo
