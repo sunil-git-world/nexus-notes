@@ -1,5 +1,5 @@
 // src/modal.js
-import './modal.css';
+//import './modal.css';
 
 export function createModal(isAuthorized, apiUrl) {
   if (!isAuthorized) return;
