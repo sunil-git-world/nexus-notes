@@ -2,9 +2,9 @@
   "name": "nexus-notes",
   "version": "1.0.0",
   "description": "A simple modal package for JavaScript frameworks.",
-  "main": "src/index.js",             // CommonJS module entry point
-  "module": "src/index.js",           // ES module entry point (same file if no build step)
-  "style": "src/styles.css",          // CSS entry point
+  "main": "src/index.js",
+  "module": "src/index.js",
+  "style": "src/styles.css",
   "keywords": ["modal", "JavaScript", "framework-agnostic"],
   "author": "Chander Kant",
   "license": "MIT",
