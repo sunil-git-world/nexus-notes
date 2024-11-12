@@ -5,7 +5,8 @@
   "main": "dist/nexus-notes.js",
   "module": "dist/nexus-notes.esm.js",
   "scripts": {
-    "build": "rollup -c"
+    "build": "rollup -c",
+	"prepublishOnly": "npm run build"
   },
   "author": "Chander Kant",
   "license": "MIT",
