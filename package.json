@@ -1,12 +1,18 @@
 {
   "name": "nexus-notes",
   "version": "1.0.0",
-  "description": "A simple modal package for JavaScript frameworks.",
+  "description": "A cross-framework popup for notes and history",
   "main": "src/index.js",
-  "module": "src/index.js",
-  "style": "src/styles.css",
-  "keywords": ["modal", "JavaScript", "framework-agnostic"],
-  "author": "Chander Kant",
+  "author": "CK",
   "license": "MIT",
-  "dependencies": {}
+  "keywords": [
+    "popup",
+    "notes",
+    "UI",
+    "framework-independent"
+  ],
+  "files": [
+    "src",
+    "styles"
+  ]
 }

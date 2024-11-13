@@ -1,61 +1,62 @@
 // src/index.js
 
-// Simple function that creates a button and displays a modal when clicked
-export default function NexusNotes() {
-    // Create button
+class NexusNotes {
+  constructor() {
+    this.initButton();
+  }
+
+  initButton() {
+    // Create a button to open the popup
     const button = document.createElement('button');
-    button.textContent = "Open Nexus Notes";
-    button.style.position = "fixed";
-    button.style.right = "10px";
-    button.style.bottom = "10px";
-    button.style.zIndex = "1000";
-    button.style.padding = "10px";
-    button.style.backgroundColor = "#007BFF";
-    button.style.color = "#fff";
-    button.style.border = "none";
-    button.style.borderRadius = "5px";
-    button.style.cursor = "pointer";
-    
+    button.innerText = 'Open Nexus Notes';
+    button.className = 'nexus-notes-btn';
+
+    // Append button to the body
     document.body.appendChild(button);
 
-    // Create the modal
-    const modal = document.createElement('div');
-    modal.style.display = "none";
-    modal.style.position = "fixed";
-    modal.style.top = "50%";
-    modal.style.left = "50%";
-    modal.style.transform = "translate(-50%, -50%)";
-    modal.style.backgroundColor = "#fff";
-    modal.style.padding = "20px";
-    modal.style.boxShadow = "0 0 10px rgba(0, 0, 0, 0.5)";
-    modal.style.zIndex = "1001";
+    // Create the popup
+    this.popup = document.createElement('div');
+    this.popup.className = 'nexus-notes-popup';
+    this.popup.innerHTML = `
+      <div class="popup-content">
+        <span class="close-btn">&times;</span>
+        <div class="section">
+          <input type="text" placeholder="Search" />
+          <textarea placeholder="Write your note..."></textarea>
+          <button id="save-note">Save Note</button>
+        </div>
+        <div class="section">
+          <button id="view-history">View History</button>
+        </div>
+      </div>
+    `;
+    document.body.appendChild(this.popup);
 
-    const textarea = document.createElement('textarea');
-    textarea.placeholder = "Write your note here...";
-    modal.appendChild(textarea);
+    // Button event listeners
+    button.addEventListener('click', () => this.showPopup());
+    this.popup.querySelector('.close-btn').addEventListener('click', () => this.hidePopup());
+    this.popup.querySelector('#save-note').addEventListener('click', this.saveNote.bind(this));
+    this.popup.querySelector('#view-history').addEventListener('click', this.viewHistory.bind(this));
+  }
 
-    const historyButton = document.createElement('button');
-    historyButton.textContent = "Show History";
-    historyButton.style.marginTop = "10px";
-    modal.appendChild(historyButton);
+  showPopup() {
+    this.popup.style.display = 'block';
+  }
 
-    document.body.appendChild(modal);
+  hidePopup() {
+    this.popup.style.display = 'none';
+  }
 
-    // Show modal when the button is clicked
-    button.addEventListener('click', () => {
-        modal.style.display = "block";
-    });
+  saveNote() {
+    // Logic to save note (API call can be added here)
+    alert('Note saved');
+  }
 
-    // Hide modal when clicked outside
-    window.addEventListener('click', (event) => {
-        if (event.target === modal) {
-            modal.style.display = "none";
-        }
-    });
-
-    // History button functionality (for demonstration, just logs to console)
-    historyButton.addEventListener('click', () => {
-        console.log("Fetching note history...");
-        // You can replace this with a call to an API
-    });
+  viewHistory() {
+    // Logic to view note history (API call can be added here)
+    alert('Showing note history');
+  }
 }
+
+// Export as default
+export default NexusNotes;
