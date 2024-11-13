@@ -1,20 +1,20 @@
 // src/index.js
 
-class NexusNotes {
+// Import CSS if running in a modern environment that supports ES module CSS imports
+// This will ensure it's framework-independent
+import '../styles/popup.css';
+
+export default class NexusNotes {
   constructor() {
     this.initButton();
   }
 
   initButton() {
-    // Create a button to open the popup
     const button = document.createElement('button');
     button.innerText = 'Open Nexus Notes';
     button.className = 'nexus-notes-btn';
-
-    // Append button to the body
     document.body.appendChild(button);
 
-    // Create the popup
     this.popup = document.createElement('div');
     this.popup.className = 'nexus-notes-popup';
     this.popup.innerHTML = `
@@ -32,7 +32,6 @@ class NexusNotes {
     `;
     document.body.appendChild(this.popup);
 
-    // Button event listeners
     button.addEventListener('click', () => this.showPopup());
     this.popup.querySelector('.close-btn').addEventListener('click', () => this.hidePopup());
     this.popup.querySelector('#save-note').addEventListener('click', this.saveNote.bind(this));
@@ -48,15 +47,10 @@ class NexusNotes {
   }
 
   saveNote() {
-    // Logic to save note (API call can be added here)
     alert('Note saved');
   }
 
   viewHistory() {
-    // Logic to view note history (API call can be added here)
     alert('Showing note history');
   }
 }
-
-// Export as default
-export default NexusNotes;

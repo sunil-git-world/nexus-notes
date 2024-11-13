@@ -1,16 +1,10 @@
 {
   "name": "nexus-notes",
   "version": "1.0.0",
-  "description": "A cross-framework popup for notes and history",
+  "description": "A cross-framework popup for notes",
   "main": "src/index.js",
   "author": "CK",
   "license": "MIT",
-  "keywords": [
-    "popup",
-    "notes",
-    "UI",
-    "framework-independent"
-  ],
   "files": [
     "src",
     "styles"
